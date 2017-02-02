@@ -20,10 +20,34 @@ public partial class MainWindow : Gtk.Window
 	{
 
 		TextLabel.Text = string.Empty;
+		string text = TextField.Text;
+
+		if (!MainClass.IsEmpty(TextLabel.Text))
+
+			text = TextLabel.Text;
 
 		if (ToUpperCheckButton.Active)
 		{
-			if (TextLabel.Text.Length == 0)
+			TextLabel.Text = MainClass.StringOperations(text, MainClass.ToUpperString);
+			text = TextLabel.Text;
+		}
+
+		if (TurnStringCheckButton.Active)
+		{
+			TextLabel.Text = MainClass.StringOperations(text, MainClass.TurnString);
+			text = TextLabel.Text;
+		}
+
+		if (AddSpacesCheckButton.Active)
+		{
+			TextLabel.Text = MainClass.StringOperations(text, MainClass.AddSpacesToString);
+			text = TextLabel.Text;
+		}
+		
+		/*
+		if (ToUpperCheckButton.Active)
+		{
+			if (MainClass.IsEmpty(TextLabel.Text))
 
 				TextLabel.Text = MainClass.StringOperations(TextField.Text, MainClass.ToUpperString);
 			else
@@ -32,7 +56,7 @@ public partial class MainWindow : Gtk.Window
 
 		if (TurnStringCheckButton.Active)
 		{
-			if (TextLabel.Text.Length == 0)
+			if (MainClass.IsEmpty(TextLabel.Text))
 
 				TextLabel.Text = MainClass.StringOperations(TextField.Text, MainClass.TurnString);
 			else
@@ -41,11 +65,12 @@ public partial class MainWindow : Gtk.Window
 
 		if (AddSpacesCheckButton.Active)
 		{
-			if (TextLabel.Text.Length == 0)
+			if (MainClass.IsEmpty(TextLabel.Text))
 
 				TextLabel.Text = MainClass.StringOperations(TextField.Text, MainClass.AddSpacesToString);
 			else
 				TextLabel.Text = MainClass.StringOperations(TextLabel.Text, MainClass.AddSpacesToString);
 		}
+		*/
 	}
 }

@@ -45,6 +45,11 @@ namespace DelegateGTK
 			return newString;
 		}
 
+		public static bool IsEmpty(string text)
+		{
+			return text.Length == 0;
+		}
+
 		public static void Main(string[] args)
 		{
 			Application.Init();
