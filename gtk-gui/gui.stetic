@@ -37,6 +37,7 @@
                         <property name="DrawIndicator">True</property>
                         <property name="HasLabel">True</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnToUpperCheckButtonClicked" />
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -53,6 +54,7 @@
                         <property name="DrawIndicator">True</property>
                         <property name="HasLabel">True</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnTurnStringCheckButtonClicked" />
                       </widget>
                       <packing>
                         <property name="Position">1</property>
@@ -69,6 +71,7 @@
                         <property name="DrawIndicator">True</property>
                         <property name="HasLabel">True</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnAddSpacesCheckButtonClicked" />
                       </widget>
                       <packing>
                         <property name="Position">2</property>

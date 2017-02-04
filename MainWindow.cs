@@ -8,6 +8,7 @@ public partial class MainWindow : Gtk.Window
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
 	{
 		Build();
+
 	}
 
 	protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -22,6 +23,10 @@ public partial class MainWindow : Gtk.Window
 		TextLabel.Text = string.Empty;
 		string text = TextField.Text;
 
+		if (MainClass.methodsList != null)
+			TextLabel.Text = MainClass.StringOperations(text, MainClass.methodsList);
+
+		/*
 		if (!MainClass.IsEmpty(TextLabel.Text))
 
 			text = TextLabel.Text;
@@ -43,34 +48,48 @@ public partial class MainWindow : Gtk.Window
 			TextLabel.Text = MainClass.StringOperations(text, MainClass.AddSpacesToString);
 			text = TextLabel.Text;
 		}
-		
-		/*
+*/
+
+	}
+
+	protected void OnToUpperCheckButtonClicked(object sender, EventArgs e)
+	{
+
 		if (ToUpperCheckButton.Active)
 		{
-			if (MainClass.IsEmpty(TextLabel.Text))
-
-				TextLabel.Text = MainClass.StringOperations(TextField.Text, MainClass.ToUpperString);
-			else
-				TextLabel.Text = MainClass.StringOperations(TextLabel.Text, MainClass.ToUpperString);
+			MainClass.methodsList.Add(MainClass.ToUpperString);
 		}
+		else
+		{
+			MainClass.methodsList.Remove(MainClass.ToUpperString);
+		}
+	}
+
+	protected void OnTurnStringCheckButtonClicked(object sender, EventArgs e)
+	{
 
 		if (TurnStringCheckButton.Active)
 		{
-			if (MainClass.IsEmpty(TextLabel.Text))
-
-				TextLabel.Text = MainClass.StringOperations(TextField.Text, MainClass.TurnString);
-			else
-				TextLabel.Text = MainClass.StringOperations(TextLabel.Text, MainClass.TurnString);
+			MainClass.methodsList.Add(MainClass.TurnString);
+		}
+		else
+		{
+			MainClass.methodsList.Remove(MainClass.TurnString);
 		}
 
+	}
+
+	protected void OnAddSpacesCheckButtonClicked(object sender, EventArgs e)
+	{
+		
 		if (AddSpacesCheckButton.Active)
 		{
-			if (MainClass.IsEmpty(TextLabel.Text))
-
-				TextLabel.Text = MainClass.StringOperations(TextField.Text, MainClass.AddSpacesToString);
-			else
-				TextLabel.Text = MainClass.StringOperations(TextLabel.Text, MainClass.AddSpacesToString);
+			MainClass.methodsList.Add(MainClass.AddSpacesToString);
 		}
-		*/
+		else
+		{
+			MainClass.methodsList.Remove(MainClass.AddSpacesToString);
+		}
+
 	}
 }
